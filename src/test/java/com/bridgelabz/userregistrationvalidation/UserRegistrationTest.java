@@ -39,4 +39,11 @@ public class UserRegistrationTest {
 		boolean isValid= UserRegistration.validateName("Ov");
 		Assert.assertFalse(isValid);
 	}	
+	
+	@Test
+	public void givenLastName_WhenNotStartingWithBlock_ShouldReturnFalse() {
+
+		boolean isValid= UserRegistration.validateName("over");
+		Assert.assertFalse(isValid);
+	}
 }
