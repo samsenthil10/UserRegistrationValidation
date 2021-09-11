@@ -88,4 +88,11 @@ public class UserRegistrationTest {
 		boolean isValid = UserRegistration.validatePhoneNumber("9999999999");
 		Assert.assertFalse(isValid);
 	}
+	
+	@Test
+	public void givenPassword_WhenProper_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validatePassword("testoVer@123");
+		Assert.assertTrue(isValid);
+	}
 }
