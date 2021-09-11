@@ -95,4 +95,31 @@ public class UserRegistrationTest {
 		boolean isValid = UserRegistration.validatePassword("testoVer@123");
 		Assert.assertTrue(isValid);
 	}
+	
+	@Test
+	public void givenPassword_WhenNotProper1_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validatePassword("t@estoVer@123");
+		Assert.assertFalse(isValid);
+	}
+	
+	@Test
+	public void givenPassword_WhenNotProper2_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validatePassword("testoVer@");
+		Assert.assertFalse(isValid);
+	}
+	
+	@Test
+	public void givenPassword_WhenNotProper3_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validatePassword("testover@1");
+		Assert.assertFalse(isValid);
+	}
+	@Test
+	public void givenPassword_WhenNotProper4_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validatePassword("testOver1");
+		Assert.assertFalse(isValid);
+	}
 }
