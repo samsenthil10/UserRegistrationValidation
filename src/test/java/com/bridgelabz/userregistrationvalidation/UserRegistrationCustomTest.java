@@ -74,4 +74,13 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.EMAIL_NULL,e.type);
 		}
 	}
+	public void givenEmail_WhenInvalid_ShouldReturnInvalid() {
+
+		try {
+			UserRegistrationCustom.validateEmail("abc.com");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.EMAIL_INVALID,e.type);
+		}
+	}
 }
