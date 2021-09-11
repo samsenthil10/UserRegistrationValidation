@@ -88,7 +88,7 @@ public class UserRegistrationCustomTest {
 	public void givenEmail_WhenEmpty_ShouldReturnEmpty() {
 
 		try {
-			UserRegistrationCustom.validateEmail(null);
+			UserRegistrationCustom.validateEmail("");
 		} catch (UserException e) {
 
 			Assert.assertEquals(ExceptionType.EMAIL_EMPTY,e.type);
@@ -104,4 +104,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.PHONE_NULL ,e.type);
 		}
 	}	
+	@Test
+	public void givenPhoneNumber_WhenInvalid_ShouldReturnInvalid() {
+
+		try {
+			UserRegistrationCustom.validatePhoneNumber("9099999999");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_INVALID ,e.type);
+		}
+	}
 }
