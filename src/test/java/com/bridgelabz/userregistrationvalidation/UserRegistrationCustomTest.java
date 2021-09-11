@@ -134,4 +134,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.PASSWORD_NULL,e.type);
 		}
 	}
+	@Test
+	public void givenPassword_WhenInvalid_ShouldReturnInvalid() {
+
+		try {
+			UserRegistrationCustom.validatePassword("Testover@@123");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PASSWORD_INVALID,e.type);
+		}
+	}
 }
