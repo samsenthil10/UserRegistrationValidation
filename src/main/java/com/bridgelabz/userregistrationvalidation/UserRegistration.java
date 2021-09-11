@@ -2,9 +2,9 @@ package com.bridgelabz.userregistrationvalidation;
 
 public class UserRegistration {
 	
-	public static boolean checkFirstName(String firstName) {
+	public static boolean checkName(String name) {
 
 		String regularExpression = "[A-Z]+[a-zA-Z\\ ]{2,}";
-		return firstName.matches(regularExpression);
-	} 
+		return name.matches(regularExpression);
+	}
 }
