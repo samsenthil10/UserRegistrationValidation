@@ -53,4 +53,11 @@ public class UserRegistrationTest {
 		boolean isValid = UserRegistration.validateEmail("abc.xyz@bridgelabz.com");
 		Assert.assertTrue(isValid);
 	}
+	
+	@Test
+	public void givenEmail_WhenInvalid_ShouldReturnFalse() {
+		
+		boolean isValid = UserRegistration.validateEmail("abc.xyz@bridgelabz");
+		Assert.assertFalse(isValid);
+	}
 }
