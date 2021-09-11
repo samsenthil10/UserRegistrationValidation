@@ -13,4 +13,10 @@ public class UserRegistration {
 		String finalRegularExpressionToCheckEmail = "((((abc)[a-zA-Z0-9]*)||(abc[_\\+\\-\\.][a-zA-Z0-9]*))+(?<!\\.)@([0-9a-zA-Z]{1,}))\\.(([a-zA-Z]{2,}\\.[a-zA-Z]{2})||([a-zA-Z\\,]{2,}))+(?<!\\.)$";
 		return email.matches(finalRegularExpressionToCheckEmail);
 	}
+	
+	public static boolean checkPhoneNumber(String phoneNumber) {
+
+		String regularExpression = "[0-9]*\\ [1-9][0-9]{9}";
+		return phoneNumber.matches(regularExpression);
+	}
 }
