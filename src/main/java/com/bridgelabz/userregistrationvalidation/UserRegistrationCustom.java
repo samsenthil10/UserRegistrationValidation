@@ -46,4 +46,18 @@ public class UserRegistrationCustom {
 			throw new UserException("Invalid Phone Number", ExceptionType.PHONE_NULL);
 		}
 	}
+	public static void validatePassword(String password) throws UserException {
+
+		try {
+			String regularExpression = "^(?=.*[0-9])(?=.*[A-Z])(?=.{8,}$)[0-9a-zA-Z]*[@#$%_][0-9a-zA-Z]*$";
+			if (password.length()==0)
+				throw new UserException("Invalid Password", ExceptionType.PASSWORD_EMPTY);
+			boolean result = password.matches(regularExpression);
+			if(result == false)
+				throw new UserException("Invalid Password", ExceptionType.PASSWORD_INVALID);
+		}
+		catch(NullPointerException e) {
+			throw new UserException("Invalid Password", ExceptionType.PASSWORD_NULL);
+		}
+	}
 }
