@@ -83,4 +83,13 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.EMAIL_INVALID,e.type);
 		}
 	}
+	public void givenEmail_WhenEmpty_ShouldReturnEmpty() {
+
+		try {
+			UserRegistrationCustom.validateEmail(null);
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.EMAIL_EMPTY,e.type);
+		}
+	}
 }
