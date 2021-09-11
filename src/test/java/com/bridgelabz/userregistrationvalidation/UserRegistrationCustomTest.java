@@ -114,4 +114,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.PHONE_INVALID ,e.type);
 		}
 	}
+	@Test
+	public void givenPhoneNumber_WhenEmpty_ShouldReturnEmpty() {
+
+		try {
+			UserRegistrationCustom.validatePhoneNumber("");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_EMPTY ,e.type);
+		}
+	}
 }
