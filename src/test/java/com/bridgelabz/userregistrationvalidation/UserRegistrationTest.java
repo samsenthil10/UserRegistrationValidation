@@ -46,4 +46,11 @@ public class UserRegistrationTest {
 		boolean isValid= UserRegistration.validateName("over");
 		Assert.assertFalse(isValid);
 	}
+	
+	@Test
+	public void givenEmail_WhenValid_ShouldReturnTrue() {
+		
+		boolean isValid = UserRegistration.validateEmail("abc.xyz@bridgelabz.com");
+		Assert.assertTrue(isValid);
+	}
 }
