@@ -67,5 +67,25 @@ public class UserRegistrationTest {
 		boolean isValid = UserRegistration.validatePhoneNumber("90 9999999999");
 		Assert.assertTrue(isValid);
 	}
+
+	@Test
+	public void givenPhoneNumber_WhenNotProper1_ShouldReturnFalse() {
+		
+		boolean isValid = UserRegistration.validatePhoneNumber("919999999999");
+		Assert.assertFalse(isValid);
+	}
 	
+	@Test
+	public void givenPhoneNumber_WhenNotProper2_ShouldReturnFalse() {
+		
+		boolean isValid = UserRegistration.validatePhoneNumber("91 999999999");
+		Assert.assertFalse(isValid);
+	}
+	
+	@Test
+	public void givenPhoneNumber_WhenNotProper3_ShouldReturnFalse() {
+		
+		boolean isValid = UserRegistration.validatePhoneNumber("9999999999");
+		Assert.assertFalse(isValid);
+	}
 }
