@@ -124,4 +124,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.PHONE_EMPTY ,e.type);
 		}
 	}
+	@Test
+	public void givenPassword_WhenNull_ShouldReturnNull() {
+
+		try {
+			UserRegistrationCustom.validatePassword(null);
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PASSWORD_NULL,e.type);
+		}
+	}
 }
