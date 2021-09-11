@@ -46,4 +46,13 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.NAME_NULL,e.type);
 		}
 	}
+	@Test
+	public void givenLastName_WhenInvalid_ShouldReturnInvalid() {
+
+		try {
+			UserRegistrationCustom.validateName("Ov");
+		} catch (UserException e) {
+			Assert.assertEquals(ExceptionType.NAME_INVALID,e.type);
+		}
+	}
 }
