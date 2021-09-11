@@ -23,7 +23,7 @@ public class EmailValidation {
 
 		for(int index = 0;index < testCases.length;index++) {
 			String email = testCases[index];
-			Assert.assertEquals(true, UserRegistration.checkEmail(email));
+			Assert.assertEquals(true, UserRegistration.validateEmail(email));
 		}
 	}
 
@@ -49,7 +49,7 @@ public class EmailValidation {
 
 		for(int index = 0;index < testCases.length;index++) {
 			String email = testCases[index];
-			Assert.assertEquals(false, UserRegistration.checkEmail(email));
+			Assert.assertEquals(false, UserRegistration.validateEmail(email));
 		}
 	}
 }
