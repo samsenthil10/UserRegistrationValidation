@@ -74,6 +74,7 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.EMAIL_NULL,e.type);
 		}
 	}
+	@Test
 	public void givenEmail_WhenInvalid_ShouldReturnInvalid() {
 
 		try {
@@ -83,6 +84,7 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.EMAIL_INVALID,e.type);
 		}
 	}
+	@Test
 	public void givenEmail_WhenEmpty_ShouldReturnEmpty() {
 
 		try {
@@ -92,4 +94,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.EMAIL_EMPTY,e.type);
 		}
 	}
+	@Test
+	public void givenPhoneNumber_WhenNull_ShouldReturnNull() {
+
+		try {
+			UserRegistrationCustom.validatePhoneNumber(null);
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_NULL ,e.type);
+		}
+	}	
 }
