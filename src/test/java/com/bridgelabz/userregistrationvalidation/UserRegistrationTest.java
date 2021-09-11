@@ -18,4 +18,11 @@ public class UserRegistrationTest {
 		boolean isValid= UserRegistration.validateName("Te");
 		Assert.assertFalse(isValid);
 	}	
+	
+	@Test
+	public void givenFirstName_WhenNotStartingWithBlock_ShouldReturnFalse() {
+
+		boolean isValid= UserRegistration.validateName("test");
+		Assert.assertFalse(isValid);
+	}	
 }
