@@ -32,4 +32,18 @@ public class UserRegistrationCustom {
 			throw new UserException("Invalid Email", ExceptionType.EMAIL_NULL);
 		}
 	}
+	public static void validatePhoneNumber(String phoneNumber) throws UserException {
+
+		try {
+			String regularExpression = "[0-9]*\\ [1-9][0-9]{9}";
+			if (phoneNumber.length()==0)
+				throw new UserException("Invalid Phone Number", ExceptionType.PHONE_EMPTY);
+			boolean result = phoneNumber.matches(regularExpression);
+			if(result == false)
+				throw new UserException("Invalid Phone Number", ExceptionType.PHONE_INVALID);
+		}
+		catch(NullPointerException e) {
+			throw new UserException("Invalid Phone Number", ExceptionType.PHONE_NULL);
+		}
+	}
 }
