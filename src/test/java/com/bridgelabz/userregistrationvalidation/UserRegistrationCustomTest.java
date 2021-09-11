@@ -36,4 +36,14 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.NAME_EMPTY,e.type);
 		}
 	}
+	@Test
+	public void givenLastName_WhenNull_ShouldReturnNull() {
+
+		try {
+			UserRegistrationCustom.validateName(null);
+		}
+		catch(UserException e) {
+			Assert.assertEquals(ExceptionType.NAME_NULL,e.type);
+		}
+	}
 }
