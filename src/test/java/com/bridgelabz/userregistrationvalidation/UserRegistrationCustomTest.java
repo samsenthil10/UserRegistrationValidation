@@ -27,4 +27,13 @@ public class UserRegistrationCustomTest {
 			Assert.assertEquals(ExceptionType.NAME_INVALID,e.type);
 		}
 	}
+	@Test
+	public void givenFirstName_WhenEmpty_ShouldReturnEmpty() {
+
+		try {
+			UserRegistrationCustom.validateName("");
+		} catch (UserException e) {
+			Assert.assertEquals(ExceptionType.NAME_EMPTY,e.type);
+		}
+	}
 }
