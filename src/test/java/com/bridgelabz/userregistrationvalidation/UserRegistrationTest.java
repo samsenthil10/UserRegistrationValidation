@@ -25,4 +25,11 @@ public class UserRegistrationTest {
 		boolean isValid= UserRegistration.validateName("test");
 		Assert.assertFalse(isValid);
 	}	
+	
+	@Test
+	public void givenLastName_WhenProper_ShouldReturnTrue() {
+
+		boolean isValid= UserRegistration.validateName("Over");
+		Assert.assertTrue(isValid);
+	}
 }
