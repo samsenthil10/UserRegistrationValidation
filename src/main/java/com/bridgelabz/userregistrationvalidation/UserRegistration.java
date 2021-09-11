@@ -19,4 +19,10 @@ public class UserRegistration {
 		String regularExpression = "[0-9]*\\ [1-9][0-9]{9}";
 		return phoneNumber.matches(regularExpression);
 	}
+	
+	public static boolean checkPassword(String password) {
+
+		String regularExpression = ".{8,}";
+		return password.matches(regularExpression);
+	}
 }
