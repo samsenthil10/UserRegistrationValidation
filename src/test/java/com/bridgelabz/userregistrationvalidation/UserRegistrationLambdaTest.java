@@ -93,4 +93,35 @@ public class UserRegistrationLambdaTest {
 			Assert.assertEquals(ExceptionType.EMAIL_EMPTY,e.type);
 		}
 	}
+	
+	@Test
+	public void givenPhoneNumber_WhenNull_ShouldReturnNull() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration .validatePhoneNumber.validate(null);
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_NULL ,e.type);
+		}
+	}	
+	@Test
+	public void givenPhoneNumber_WhenInvalid_ShouldReturnInvalid() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration .validatePhoneNumber.validate("9099999999");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_INVALID ,e.type);
+		}
+	}
+	@Test
+	public void givenPhoneNumber_WhenEmpty_ShouldReturnEmpty() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration .validatePhoneNumber.validate("");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PHONE_EMPTY ,e.type);
+		}
+	}
 }
