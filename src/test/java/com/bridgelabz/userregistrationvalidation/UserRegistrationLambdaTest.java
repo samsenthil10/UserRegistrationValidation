@@ -93,7 +93,7 @@ public class UserRegistrationLambdaTest {
 			Assert.assertEquals(ExceptionType.EMAIL_EMPTY,e.type);
 		}
 	}
-	
+
 	@Test
 	public void givenPhoneNumber_WhenNull_ShouldReturnNull() {
 		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
@@ -122,6 +122,36 @@ public class UserRegistrationLambdaTest {
 		} catch (UserException e) {
 
 			Assert.assertEquals(ExceptionType.PHONE_EMPTY ,e.type);
+		}
+	}
+	@Test
+	public void givenPassword_WhenNull_ShouldReturnNull() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration.validatePassword.validate(null);
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PASSWORD_NULL,e.type);
+		}
+	}
+	@Test
+	public void givenPassword_WhenInvalid_ShouldReturnInvalid() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration.validatePassword.validate("Testover@@123");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PASSWORD_INVALID,e.type);
+		}
+	}
+	@Test
+	public void givenPassword_WhenEmpty_ShouldReturnEmpty() {
+		UserRegistrationLambda userRegistration = new UserRegistrationLambda();
+		try {
+			userRegistration.validatePassword.validate("");
+		} catch (UserException e) {
+
+			Assert.assertEquals(ExceptionType.PASSWORD_EMPTY,e.type);
 		}
 	}
 }
